@@ -17937,6 +17937,7 @@ span.sr-only {
   position: relative;
   color: var(--color-lightn);
   font-weight: 400;
+  font-size: 15px;
 }
 
 .contact-about-area .description span a::before {
