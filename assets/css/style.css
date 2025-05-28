@@ -21970,6 +21970,25 @@ body.white-version .rn-btn-ulderline {
   right: 10px;
 }
 
+.myModalOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.myImageModal {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+}
+
 @media screen and (max-width:1399px) {
   .certificate-images {
     display: flex;
