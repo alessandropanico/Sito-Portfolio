@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("myForm");
     const inviaButton = document.getElementById("inviaButton");
 
-    form.addEventListener("submit", async function(event) {
+    form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
         console.log("Submit button clicked");
@@ -37,12 +37,19 @@ document.addEventListener("DOMContentLoaded", function() {
             await emailjs.send(emailData.service_id, emailData.template_id, emailData.template_params, emailData.user_id);
             const aziendaMessage = document.getElementById("aziendaMessage");
             aziendaMessage.textContent = "Informazioni inviate con successo!";
+
+            document.getElementById("contact-name").value = '';
+            document.getElementById("contact-email").value = '';
+            document.getElementById("subject").value = '';
+            document.getElementById("contact-phone").value = '';
+            document.getElementById("contact-message").value = '';
+
         } catch (error) {
             console.error("Errore nell'invio dell'email:", error);
         }
     });
 
-    inviaButton.addEventListener("click", function(event) {
+    inviaButton.addEventListener("click", function (event) {
         event.preventDefault();
         form.dispatchEvent(new Event("submit"));
     });
