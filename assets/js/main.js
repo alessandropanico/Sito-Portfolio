@@ -54,60 +54,62 @@
             })
         },
 
-        contactForm: function () {
-            $('.rwt-dynamic-form').on('submit', function (e) {
-                e.preventDefault();
+      contactForm: function () {
+    $('.rwt-dynamic-form').on('submit', function (e) {
+        // Ignora il form EmailJS
+        if ($(this).attr('id') === 'myForm') return;
 
-                // Raccogli i dati dal form
-                const name = $('#contact-name').val();
-                const email = $('#contact-email').val();
-                const phone = $('#contact-phone').val();
-                const subject = $('#subject').val();
-                const message = $('#contact-message').val();
+        e.preventDefault();
 
-                // Se vuoi usare mailto per inviare direttamente dal client
-                const useMailto = true; // ✅ Cambia in `false` per tornare ad AJAX
+        const name = $('#contact-name').val();
+        const email = $('#contact-email').val();
+        const phone = $('#contact-phone').val();
+        const subject = $('#subject').val();
+        const message = $('#contact-message').val();
 
-                if (useMailto) {
-                    const body = `Nome: ${name}%0AEmail: ${email}%0ATelefono: ${phone}%0AMessaggio: ${message}`;
-                    const mailtoLink = `mailto:panico.alessandro1995@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-                    window.location.href = mailtoLink;
-                    return; // Evita di proseguire con l'AJAX
+        // Configurazione per usare mailto
+        const useMailto = true;
+
+        if (useMailto) {
+            const body = `Nome: ${name}%0AEmail: ${email}%0ATelefono: ${phone}%0AMessaggio: ${message}`;
+            const mailtoLink = `mailto:panico.alessandro1995@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            window.location.href = mailtoLink;
+            return;
+        }
+
+        // Metodo alternativo con AJAX
+        const _self = $(this);
+        _self.closest('div').find('input,textarea').removeAttr('style');
+        _self.find('.error-msg').remove();
+        _self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
+
+        const data = _self.serialize();
+
+        $.ajax({
+            url: 'mail.php',
+            type: 'POST',
+            dataType: 'json',
+            data: data,
+            success: function (data) {
+                _self.closest('div').find('button[type="submit"]').removeAttr('disabled');
+
+                if (data.code === false) {
+                    _self.find('.rn-btn').after(`<div class="error-msg"><p>* ${data.err}</p></div>`);
+                } else {
+                    $('.error-msg').hide();
+                    $('.form-group').removeClass('focused');
+                    _self.find('.rn-btn').after(`<div class="success-msg"><p>${data.success}</p></div>`);
+                    _self.closest('div').find('input,textarea').val('');
+
+                    setTimeout(function () {
+                        $('.success-msg').fadeOut('slow');
+                    }, 5000);
                 }
+            }
+        });
+    });
+},
 
-                // Altrimenti usa AJAX (server)
-                var _self = $(this);
-                var __selector = _self.closest('input,textarea');
-                _self.closest('div').find('input,textarea').removeAttr('style');
-                _self.find('.error-msg').remove();
-                _self.closest('div').find('button[type="submit"]').attr('disabled', 'disabled');
-                var data = $(this).serialize();
-
-                $.ajax({
-                    url: 'mail.php',
-                    type: "post",
-                    dataType: 'json',
-                    data: data,
-                    success: function (data) {
-                        _self.closest('div').find('button[type="submit"]').removeAttr('disabled');
-                        if (data.code == false) {
-                            _self.closest('div').find('[name="' + data.field + '"]');
-                            _self.find('.rn-btn').after('<div class="error-msg"><p>*' + data.err + '</p></div>');
-                        } else {
-                            $('.error-msg').hide();
-                            $('.form-group').removeClass('focused');
-                            _self.find('.rn-btn').after('<div class="success-msg"><p>' + data.success + '</p></div>');
-                            _self.closest('div').find('input,textarea').val('');
-
-                            setTimeout(function () {
-                                $('.success-msg').fadeOut('slow');
-                            }, 5000);
-                        }
-                    }
-                });
-            });
-
-        },
 
 
 
