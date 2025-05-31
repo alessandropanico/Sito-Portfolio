@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("Soggetto:", subject)
 
         const emailData = {
-            service_id: 'ServizioMio',
+            service_id: 'ServizioMio2',
             template_id: 'TemplateMio',
             user_id: 'DYAuk3nJ1S4O-Y948',
             template_params: {
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         try {
             await emailjs.send(emailData.service_id, emailData.template_id, emailData.template_params, emailData.user_id);
-            const aziendaMessage = document.getElementById("myForm");
+            const aziendaMessage = document.getElementById("aziendaMessage");
             aziendaMessage.textContent = "Informazioni inviate con successo!";
         } catch (error) {
             console.error("Errore nell'invio dell'email:", error);
