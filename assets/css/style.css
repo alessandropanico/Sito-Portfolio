@@ -16804,12 +16804,19 @@ div#featured-project-carousel {
   background-color: #212428;
 }
 
-.tab-navigation-button .nav-item .nav-link.rn-nav:hover,
 .tab-navigation-button .nav-item .nav-link.rn-nav:focus,
 .tab-navigation-button .nav-item .nav-link.rn-nav.active {
   box-shadow: none;
   color: #ffffff !important;
   background: var(--color-primary) !important;
+}
+
+
+/*HOVER*/
+.tab-navigation-button .nav-item .nav-link.rn-nav:hover{
+  background-color: #ff80a6;
+  /* background: var(--color-primary) !important; */
+  color: white;
 }
 
 @media only screen and (max-width: 575px) {
