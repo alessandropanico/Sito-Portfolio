@@ -13147,11 +13147,11 @@ button.rn-btn.thumbs-icon svg {
   margin-top: -7px;
 }
 
-.rn-btn:disabled{
+.rn-btn:disabled {
   background: linear-gradient(145deg, #676c75, #23272b);
-    transform: none !important;
-    cursor: not-allowed;
-    color: #ff6e9a;
+  transform: none !important;
+  cursor: not-allowed;
+  color: #ff6e9a;
 }
 
 .button-style .main-page-wrapper {
@@ -16820,7 +16820,7 @@ div#featured-project-carousel {
 
 
 /*HOVER*/
-.tab-navigation-button .nav-item .nav-link.rn-nav:hover{
+.tab-navigation-button .nav-item .nav-link.rn-nav:hover {
   background-color: #ff80a6;
   /* background: var(--color-primary) !important; */
   color: white;
