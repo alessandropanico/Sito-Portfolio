@@ -13123,7 +13123,7 @@ button.rn-btn.no-shadow {
 
 a.rn-btn.btn-theme,
 button.rn-btn.btn-theme {
-  background: var(--color-primary) !important;
+  background: var(--color-primary);
   color: var(--color-white) !important;
 }
 
@@ -13145,6 +13145,13 @@ button.rn-btn.btn-transparent::before {
 a.rn-btn.thumbs-icon svg,
 button.rn-btn.thumbs-icon svg {
   margin-top: -7px;
+}
+
+.rn-btn:disabled{
+  background: linear-gradient(145deg, #676c75, #23272b);
+    transform: none !important;
+    cursor: not-allowed;
+    color: #ff6e9a;
 }
 
 .button-style .main-page-wrapper {
@@ -21080,6 +21087,17 @@ body.white-version .rn-btn-ulderline {
 .white-version .modal .modal-body .comment-inner a.rn-btn:hover {
   color: var(--color-white);
   transform: translateY(-3px);
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Per Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .white-version .modal .modal-body .comment-inner .rnform-group input {
