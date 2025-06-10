@@ -13152,7 +13152,11 @@ button.rn-btn.thumbs-icon svg {
   transform: none !important;
   cursor: not-allowed;
   color: #ff6e9a;
+    pointer-events: none;
+
 }
+
+
 
 .button-style .main-page-wrapper {
   position: relative;
