@@ -8256,6 +8256,7 @@ ul.slick-dots li button {
     width: 100%;
     z-index: 10;
     justify-content: space-between;
+    border-top: solid 1px var(--color-primary);
   }
 }
 
@@ -13152,7 +13153,7 @@ button.rn-btn.thumbs-icon svg {
   transform: none !important;
   cursor: not-allowed;
   color: #ff6e9a;
-    pointer-events: none;
+  pointer-events: none;
 
 }
 
@@ -19380,7 +19381,9 @@ span.sr-only {
 
 @media only screen and (max-width: 575px) {
   .backto-top>div {
-    bottom: 30px;
+    bottom: 100px;
+    border: solid 1px var(--color-primary);
+    box-shadow: none;
   }
 }
 
