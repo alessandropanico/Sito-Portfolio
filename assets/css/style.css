@@ -19382,8 +19382,6 @@ span.sr-only {
 @media only screen and (max-width: 575px) {
   .backto-top>div {
     bottom: 100px;
-    border: solid 1px var(--color-primary);
-    box-shadow: none;
   }
 }
 
