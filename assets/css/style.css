@@ -22049,3 +22049,33 @@ input[type=number] {
 .pPers{
   margin-bottom: 10px !important;
 }
+
+/*SLIDER*/
+.slider-container {
+  width: 100%;
+  margin-top: 20px;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+}
+
+.slider-container:active {
+  cursor: grabbing;
+}
+
+.slider-track {
+  display: flex;
+  gap: 15px;
+}
+
+.slide {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  pointer-events: none; /* IMPORTANTISSIMO */
+}
