@@ -22059,7 +22059,6 @@ input[type=number] {
   overflow: hidden;
   cursor: grab;
   user-select: none;
-
   /* migliora fluidità drag */
   touch-action: pan-y;
 }
@@ -22088,7 +22087,6 @@ input[type=number] {
   display: block;
 }
 
-/* optional: hover leggero */
 .slide:hover img {
   transform: scale(1.02);
   transition: transform 0.25s ease;
