@@ -22046,10 +22046,12 @@ input[type=number] {
 }
 
 
-.pPers{
+.pPers {
   margin-bottom: 10px !important;
 }
 
+
+/*--------------------------*/
 /*SLIDER*/
 .slider-container {
   width: 100%;
@@ -22077,5 +22079,5 @@ input[type=number] {
   width: 100%;
   height: auto;
   border-radius: 10px;
-  pointer-events: none; /* IMPORTANTISSIMO */
+  pointer-events: none;
 }
