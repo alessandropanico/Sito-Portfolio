@@ -6146,6 +6146,7 @@ a {
   color: var(--color-heading);
   text-decoration: none;
   outline: none;
+  transition: color 0.3s ease;
 }
 
 a:hover,
@@ -22042,4 +22043,9 @@ input[type=number] {
     margin-right: 10px;
   }
 
+}
+
+
+.pPers{
+  margin-bottom: 10px !important;
 }
