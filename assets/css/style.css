@@ -22059,6 +22059,9 @@ input[type=number] {
   overflow: hidden;
   cursor: grab;
   user-select: none;
+
+  /* migliora fluidità drag */
+  touch-action: pan-y;
 }
 
 .slider-container:active {
@@ -22068,11 +22071,13 @@ input[type=number] {
 .slider-track {
   display: flex;
   gap: 15px;
+  will-change: transform;
 }
 
 .slide {
   width: 250px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .slide img {
@@ -22080,4 +22085,11 @@ input[type=number] {
   height: auto;
   border-radius: 10px;
   pointer-events: none;
+  display: block;
+}
+
+/* optional: hover leggero */
+.slide:hover img {
+  transform: scale(1.02);
+  transition: transform 0.25s ease;
 }
